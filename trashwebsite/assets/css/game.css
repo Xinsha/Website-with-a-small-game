@@ -1,0 +1,235 @@
+html, body{
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.page-title{
+    color:#FF5353;
+    font-size:4em ;
+    text-align: center;
+    font-family: sans-serif
+}
+
+.game-info{
+    color:#000000;
+    font-size: 1.5em;
+    margin-top: -10px;
+}
+
+.game-info-container{
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-evenly;
+    perspective: 500px;
+}
+
+.game-container{
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 10px;
+    margin: 20px;
+    justify-content: center;
+}
+
+.recycle{
+    position:absolute;
+    transform: rotate(360deg);
+    transition: transform 800ms ease-in-out;
+}
+
+.card{
+    position: relative;
+    height: 150px;
+    width: 100px;
+    
+}
+
+.card-face{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    backface-visibility: hidden;
+    border-width: 1px;
+    border-style: solid;
+    transition: transform 500ms ease-in-out;
+}
+
+.card-back{
+    background-color: #00AEFF;
+    border-color: black;
+
+}
+
+.card-front{
+    background-color: #FFAA00;
+    transform: rotateY(180deg)
+}
+
+.card-value{
+    transition: transform 100ms ease-in-out;
+    transform: scale(.9);
+}
+
+.card-front:hover .card-value{
+    transform: scale(1);
+}
+
+.card-back:hover .recycle{
+    transform: rotate(0deg);
+}
+
+.card.visible .card-back{
+    transform: rotateY(-180deg);
+}
+
+.card.visible .card-front{
+    transform: rotateY(0);
+}
+
+.card.matched .card-value{
+    animation: dance 1s linear infinite 500ms;
+}
+
+.overlay-text{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    color: orange;
+}
+
+.overlay-text-small{
+    font-size: .3em;
+}
+
+.overlay-text.visible{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    animation: overlay-grow 500ms forwards;
+
+}
+
+.btnStart{
+    font-size: 32px;
+    height:80px;
+    width:400px;
+    margin: 10px;
+    z-index: 100;
+    color: orange;
+    background-color: rgba(0, 0, 0, .8);
+    border-style: solid;
+    border-radius: 12px;
+    border: 1px;
+}
+
+.btnStart:hover{
+    color:#000000;
+    background-color:#818181;
+}
+
+.btnRestart{
+    font-size: 16px;
+    height:40px;
+    width:200px;
+    margin: 10px;
+    z-index: 100;
+    color: orange;
+    background-color: rgba(0, 0, 0, .8);
+    border-style: solid;
+    border-radius: 12px;
+    border: 1px;
+}
+
+.btnRestart:hover{
+    color:#000000;
+    background-color:#818181;
+}
+
+.btnHome{
+    font-size: 16px;
+    height:40px;
+    width:200px;
+    margin: 10px;
+    z-index: 100;
+    color: orange;
+    background-color: rgba(0, 0, 0, .8);
+    border-style: solid;
+    border-radius: 12px;
+    border: 1px;
+}
+
+.btnHome:hover{
+    color:#000000;
+    background-color:#818181;
+}
+
+.btnStoppa{
+    display: flex;
+    justify-content: center;
+}
+
+#stoppa{
+    font-size: 12px;
+    height:30px;
+    width:150px;
+    color: orange;
+    background-color: rgba(0, 0, 0, .8);
+    border-style: solid;
+    border-radius: 12px;
+    border: 1px;
+}
+
+.btns{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.wText{
+    font-size: 22px;
+    color: #ffffff;
+}
+
+@keyframes overlay-grow{
+    from {
+        background-color: rgba(0, 0, 0, 0);
+        font-size: 0;
+    }
+    to {
+        background-color: rgba(0, 0, 0, .8);
+        font-size: 6em;
+    }
+}
+
+@keyframes dance {
+    0%, 100%{
+        transform: rotate(0);
+    }
+    25%{
+        transform: rotate(-10deg);
+    }
+    75% {
+        transform: rotate(10deg);
+    }
+}
+
+@media (max-width: 600px) {
+    .game-container{
+        grid-template-columns: repeat(4, auto);
+    }
+
+    .game-info-container{
+        flex-direction: column;
+        align-items: center;
+    }
+}

@@ -1,0 +1,183 @@
+.headerh1{
+    display: flex;
+    justify-content: center;
+    font-size: 6em;
+    font-family: sans-serif;
+    margin-top: 50px;
+}
+
+/* NAV CSS START */
+@keyframes fill {
+0% {
+    width: 0%;
+    height: 1px;
+}
+50% {
+    width: 100%;
+    height: 1px;
+}
+100% {
+    width: 100%;
+    height: 100%;
+    background: red;
+    }
+}
+
+.btnNext{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.ftter{
+    position:fixed;
+    bottom:0;
+    display: flex;
+    align-items: flex-end;
+}
+
+#mainNav{
+    margin-right: 220px;
+}
+
+nav{
+    width:100%;
+    margin:0;
+}
+
+.navbar-brand{
+    text-decoration: underline;
+}
+
+nav ul li a {
+    position: relative;
+}
+
+nav ul li a:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 0%;
+    content: '.';
+    color: transparent;
+    background: #aaa;
+    height: 1px;
+  }
+
+nav ul li a {
+    transition: all 2s;
+}
+  
+nav ul li a:after {
+    text-align: left;
+    content: '.';
+
+    opacity: 0;
+}
+nav ul li a:hover {
+    color: #fff;
+    z-index: 1;
+}
+nav ul li a:hover:after {
+    z-index: -10;
+    animation: fill 1s forwards;
+    -webkit-animation: fill 1s forwards;
+    -moz-animation: fill 1s forwards;
+    opacity: 1;
+}
+
+.headertext{
+    text-align: center;
+}
+
+.logoimg{
+    margin-left: 75px;
+}
+
+
+/* NAV CSS END*/
+
+/* Earth GIF start */
+
+@keyframes bounce {
+    0%   {transform: translateY(-20%);}
+    100% {transform: translateY(0);}
+}
+
+.earthbox{
+    display: block;
+    background-color: transparent;
+    animation: bounce .5s infinite alternate ease-in;
+}
+
+/* Earth GIF end */
+
+.homemain{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 100px;
+}
+
+.infotext{
+    font-size: 24px;
+    width: 800px;
+}
+
+.mainsection{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 100px;
+}
+
+
+/* Källsortering css start */
+
+.ksorteringinfo{
+    font-size: 24px;
+    width: 800px;
+}
+
+/* Källsortering css end */
+
+/* Sophämtning css start */
+
+.soporinfo{
+    font-size: 24px;
+    width: 800px;
+}
+
+/* Sophämtning css end */
+
+/* Kompost css start */
+
+.kompostinfo{
+    font-size: 24px;
+    width: 800px;
+}
+
+/* Kompost css end */
+
+/* Plast css start */
+
+.plastinfo{
+    font-size: 24px;
+    width: 800px;
+}
+
+/* Plast css end */
+
+@media (max-width: 600px) {
+    #mainNav{
+        margin-right: 1px;
+    }
+
+    .mainsection{
+        flex-direction: column;
+    }
+
+    .earthbox{
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+}

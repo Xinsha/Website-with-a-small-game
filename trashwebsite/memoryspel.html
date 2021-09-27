@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang ="sv">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="assets/css/game.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+  <meta name="robots" content="noindex,nofollow">
+  <script src="assets/java/memoryspel.js" async></script>
+  <title>Pennybridge</title>
+</head>
+<body>
+  <nav class="navbar navbar-dark navbar-expand-lg bg-dark sticky-top">
+      <a class="navbar-brand" href="startsida.html">
+        <img
+          class="logoimg"
+          src="assets/img/logo.png"
+          height="70"
+          alt=""
+          loading="lazy"
+        />
+        <br>
+        Pennybridge Kommun
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse w-100" id="mainNav">
+          <ul class="navbar-nav w-100 justify-content-center" id="navElements">
+              <li class="nav-item">
+                  <a href="startsida.html" class="nav-link">Hem</a>
+              </li>
+              <li class="nav-item">
+                  <a href="kallsortering.html" class="nav-link">Källsortering</a>
+              </li>
+              <li class="nav-item">
+                  <a href="sopor.html" class="nav-link">Sophämtning</a>
+              </li>
+              <li class="nav-item">
+                  <a href="kompost.html" class="nav-link">Kompost</a>
+              </li>
+              <li class="nav-item">
+                  <a href="plast.html" class="nav-link">Plast</a>
+              </li>
+              <li class="nav-item">
+                  <a href="memoryspel.html" class="nav-link active">Minnesspel</a>
+              </li>
+          </ul>
+      </div>
+  </nav>
+
+  <!--Main-->
+  <section>
+  <div class="main">
+    <h1 class="page-title">Mat(ch) & avfall</h1>
+    <div class="btnStoppa">
+      <button id="stoppa">Stoppa spel</button>
+    </div>
+    <div class="game-container">
+    <div class="overlay-text visible">
+      Matcha alla kort för att vinna
+      <br>
+      <button class="btnStart">Starta!</button>
+      <button class="btnHome" onclick="startsida()">Tillbaka till startsida</button>
+    </div>
+    <div id="game-over-text" class="overlay-text">
+      GAME OVER
+      <div class="btns">
+        <button class="btnRestart">Starta om</button>
+        <button class="btnHome" onclick="startsida()">Tillbaka till startsida</button>
+      </div>
+    </div>
+      <div id="victory-text" class="overlay-text">
+      Grattis! Du klara det!
+      <p class="wText">
+      Nu har du förhoppningsvist lärt dig mer om källsortering!
+      <br>
+      Du vet varför man källsroterar och hur viktigt det är.
+      <br>
+      Hoppas du hade kul att pussla ihop avfallet i matchspelet !:)
+      </p>
+      <div class="btns">
+        <button class="btnRestart">Starta om</button>
+        <button class="btnHome" onclick="startsida()">Tillbaka till startsida</button>
+      </div>
+    </div>
+      <div class="game-info-container">
+        <div class="game-info">
+          Time: <span id="time-remaining">60</span>
+        </div>
+        <div class="game-info">
+          Flips: <span id="flips">0</span>   
+        </div>
+      </div>
+      <!--CARDS-->
+      <div class="card">
+        <div class="card-back card-face">
+          <img class="recycle" src="assets/img/recycle.png">
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/img/glass.png">
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img class="recycle" src="assets/img/recycle.png">
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/img/glass.png">
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img class="recycle" src="assets/img/recycle.png">
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/img/fish.png">
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img class="recycle" src="assets/img/recycle.png">
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/img/fish.png">
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img class="recycle" src="assets/img/recycle.png">
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/img/plastic.png">
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img class="recycle" src="assets/img/recycle.png">
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/img/plastic.png">
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img class="recycle" src="assets/img/recycle.png">
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/img/wrench.png">
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img class="recycle" src="assets/img/recycle.png">
+          </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/img/wrench.png">
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img class="recycle" src="assets/img/recycle.png">
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/img/battery.png">
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img class="recycle" src="assets/img/recycle.png">
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/img/battery.png">
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img class="recycle" src="assets/img/recycle.png">
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/img/paper.png">
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img class="recycle" src="assets/img/recycle.png">
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/img/paper.png">
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img class="recycle" src="assets/img/recycle.png">
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/img/cardboard.png">
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img class="recycle" src="assets/img/recycle.png">
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/img/cardboard.png">
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img class="recycle" src="assets/img/recycle.png">
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/img/food.png">
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-back card-face">
+          <img class="recycle" src="assets/img/recycle.png">
+        </div>
+        <div class="card-front card-face">
+          <img class="card-value" src="assets/img/food.png">
+        </div>
+      </div>
+    </div>
+  </div>
+  <section>
+</body>
+</html>
